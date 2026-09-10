@@ -1,14 +1,17 @@
-# Streamlit Secrets (Crucial for security)
-.streamlit/secrets.toml
-
-# Python virtual environment & cache
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Virtual environments
 .venv/
 venv/
 ENV/
 env/
+
+# Environment files & Streamlit configuration (strictly ignored)
+.env
+.streamlit/
 
 # IDE / Editor files
 .vscode/

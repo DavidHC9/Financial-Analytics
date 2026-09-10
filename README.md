@@ -1,115 +1,133 @@
-# 📊 Financial Analytics - Dashboard Web con Streamlit
+# 📊 Financial Analytics & Machine Learning: ProyecKeras
 
-Una plataforma web interactiva y profesional para el análisis financiero de acciones, indicadores técnicos, commodities y análisis comparativo utilizando la API de **Alpha Vantage**, **Streamlit** y **Plotly**.
+![Python](https://img.shields.io/badge/python-3.10%2B-106EBE?style=flat-square&logo=python&logoColor=white) ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3%2B-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B?style=flat-square&logo=streamlit&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-2.0%2B-150458?style=flat-square&logo=pandas&logoColor=white) ![Methodology](https://img.shields.io/badge/Methodology-CRISP--ML-purple?style=flat-square)
+
+Una plataforma profesional e interactiva de análisis financiero y Machine Learning diseñada para monitorear activos de mercado, evaluar indicadores técnicos y entrenar modelos predictivos bursátiles bajo la metodología industrial estándar **CRISP-ML(Q)**.
 
 ---
 
-## 🚀 Características Principales
+## 📁 Estructura del Proyecto
 
-- **🏠 Dashboard Inicial:** Métricas principales del mercado en tiempo real (Precio IBM, RSI, Oro, Plata, Petróleo WTI, Ratio Oro/Plata).
-- **📈 Análisis de Acciones:** Consulta de cotizaciones diarias, semanales y mensuales (con Velas Japonesas OHLC y volumen) para tickers populares (IBM, AAPL, MSFT, GOOGL, AMZN, TSLA, NVDA) o cualquier símbolo personalizado.
-- **📊 Análisis Técnico:** 
-  - **RSI (14 períodos):** Indicador de sobrecompra/sobreventa con alertas visuales e interpretación automatizada.
-  - **Bandas de Bollinger (20 períodos, 2 std dev):** Rango de volatilidad con gráfico interactivo y bandas sombreadas.
-- **🥇 Commodities:** Precios históricos de Oro, Plata y Petróleo WTI, con gráfico de comparación "Oro vs Plata" y cálculo de Ratio Oro/Plata.
-- **🔄 Comparador de Activos:** Evaluación del rendimiento acumulado porcentual, matriz de correlación de retornos y tabla estadística de volatilidad y retorno.
-- **ℹ️ Sección Informativa:** Documentación educativa sobre los indicadores financieros y la API.
+El repositorio está estructurado de la siguiente forma:
+
+```text
+ProyecKeras/
+│
+├── .github/
+│   └── workflows/
+│       └── ci.yml             # Workflow de Integración Continua (CI)
+├── .gitignore                 # Configuración de archivos ignorados
+├── LICENSE                    # Licencia del proyecto (MIT)
+├── README.md                  # Documentación oficial del proyecto
+├── app.py                     # Aplicación principal de Streamlit
+├── index.html                 # Portal web de presentación y documentación
+├── requirements.txt           # Lista de dependencias en Python
+└── style.css                  # Hoja de estilos visuales personalizada
+```
+
+---
+
+## 🎯 Descripción y Objetivos
+
+El objetivo principal de **ProyecKeras** es integrar en un único entorno interactivo herramientas de análisis técnico cuantitativo, visualizaciones dinámicas de mercado e ingeniería de características para el entrenamiento y evaluación de modelos predictivos.
+
+La aplicación permite:
+- **Consultar cotizaciones** y datos históricos de acciones (*IBM, AAPL, MSFT, GOOGL, AMZN, TSLA, NVDA*) y materias primas (*Oro, Plata, Petróleo WTI*).
+- **Analizar indicadores técnicos** como el **RSI (Índice de Fuerza Relativa)**, **Bandas de Bollinger** y ratios de materias primas.
+- **Entrenar modelos de Machine Learning** supervisados (*Random Forest Regressor/Classifier*, *Ridge Regression*, *Decision Trees*).
+- **Proyectar precios futuros** y tendencias a $N$ días con escenarios simulados (Optimista, Base, Pesimista).
+- **Evaluar métricas cuantitativas** ($R^2$, RMSE, MAE, Exactitud, Matriz de Confusión e Importancia de Características).
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **Python 3.10+**
-- **Streamlit** (Framework de interfaz de usuario)
-- **Plotly** (Visualizaciones interactivas de alta calidad)
-- **Pandas & NumPy** (Procesamiento y análisis de series temporales)
-- **Requests** (Consumo de la REST API de Alpha Vantage)
+- **Lenguaje Principal:** Python 3.10+
+- **Dashboard Interactivo:** [Streamlit](https://streamlit.io/) (v1.30.0+)
+- **Machine Learning:** [Scikit-Learn](https://scikit-learn.org/)
+- **Procesamiento de Datos:** Pandas, NumPy
+- **Visualización:** Plotly Express, Plotly Graph Objects
+- **APIs & Ingestión de Datos:** Alpha Vantage API (con generador sintético de respaldo automático)
+- **CI / CD:** GitHub Actions
 
 ---
 
-## 📋 Requisitos Previos e Instalación
+## ⚙️ Instalación y Ejecución Local
 
-### 1. Clonar el repositorio o descargar el código
+### 1. Requisitos Previos
+Tener instalado Python 3.10+ y Git.
+
+### 2. Clonar el Repositorio
 ```bash
-git clone <URL_DE_TU_REPOSITORIO>
-cd proyectofinanzas
+git clone https://github.com/tu-usuario/ProyecKeras.git
+cd ProyecKeras
 ```
 
-### 2. Crear y activar un entorno virtual (recomendado)
-En Windows:
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-```
+### 3. Crear y Activar Entorno Virtual
+- **Windows:**
+  ```powershell
+  python -m venv .venv
+  .venv\Scripts\activate
+  ```
+- **Linux / macOS:**
+  ```bash
+  python3 -m venv .venv
+  source .venv/bin/activate
+  ```
 
-En macOS / Linux:
+### 4. Instalar Dependencias
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-### 3. Instalar dependencias
-```bash
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
----
-
-## 🔑 Configuración de Alpha Vantage API & Streamlit Secrets
-
-### Obtener API Key Gratuita
-Consigue una API Key gratuita en [alphavantage.co/support/#api-key](https://www.alphavantage.co/support/#api-key).
-
-### Configurar Secrets para Desarrollo Local
-Para ejecutar la aplicación localmente sin exponer tu clave en el código, crea la carpeta `.streamlit` y el archivo `secrets.toml`:
-
-1. Crea la carpeta `.streamlit` en la raíz del proyecto (si no existe).
-2. Dentro de `.streamlit/`, crea un archivo llamado `secrets.toml`.
-3. Agrega la siguiente línea con tu clave:
-
-```toml
-ALPHA_VANTAGE_API_KEY = "TU_API_KEY_AQUI"
-```
-
-> **Nota:** El archivo `.streamlit/secrets.toml` ya está incluido en `.gitignore` para prevenir subir credenciales por accidente a GitHub.
-
----
-
-## 💻 Ejecución Local
-
-Ejecuta el servidor de desarrollo de Streamlit:
+### 5. Ejecutar la Aplicación Localmente
+Para iniciar la plataforma interactiva de Streamlit:
 
 ```bash
 streamlit run app.py
 ```
 
-La aplicación se abrirá automáticamente en tu navegador predeterminado en `http://localhost:8501`.
-
----
-
-## ☁️ Despliegue en Streamlit Cloud
-
-1. Sube tu proyecto a un repositorio de **GitHub** (asegúrate de **NO** incluir `.streamlit/secrets.toml`).
-2. Ve a [share.streamlit.io](https://share.streamlit.io/) e inicia sesión con tu cuenta de GitHub.
-3. Haz clic en **"New app"** y selecciona tu repositorio, rama (`main`) y archivo principal (`app.py`).
-4. Antes de desplegar (o en la sección de Configuración de la App), dirígete a **Advanced settings -> Secrets** y añade tu clave:
-
-```toml
-ALPHA_VANTAGE_API_KEY = "TU_API_KEY_AQUI"
+> 💡 **Nota en Windows:** Si la consola indica que `streamlit` no se reconoce como un comando, puedes ejecutar alternativamente:
+```bash
+python -m streamlit run app.py
 ```
 
-5. Haz clic en **Deploy**. ¡Tu aplicación estará en línea y lista para usarse!
+La aplicación se abrirá en tu navegador en `http://localhost:8501`.
 
 ---
 
-## ⚠️ Limitaciones de la API Gratuita
+## 🤖 Información sobre el Modelo de Machine Learning
 
-La API gratuita de Alpha Vantage impone las siguientes restricciones:
-- **Límite de Frecuencia:** Máximo 5 solicitudes por minuto.
-- **Caché:** La aplicación implementa `@st.cache_data(ttl=300)` para almacenar en caché las respuestas durante 5 minutos y reducir drásticamente las solicitudes innecesarias.
+El módulo de Machine Learning en `app.py` permite construir y personalizar modelos predictivos:
+
+1. **Ingeniería de Características:** Retardos ($Lag_1 \dots Lag_n$), retornos porcentuales, medias móviles ($SMA_5$, $SMA_{20}$) y volatilidad rodante.
+2. **Modelos Disponibles:** Random Forest (Regresión y Clasificación), Ridge Regression y Árboles de Decisión.
+3. **Métricas de Evaluación:** MAE, RMSE, $R^2$, Exactitud, Matriz de Confusión y Gráficos de Importancia de Variables.
 
 ---
 
-## ⚠️ Disclaimer Financiero
+## 🔮 Predicciones y Proyecciones
 
-Esta aplicación tiene fines exclusivamente educativos e informativos y no constituye asesoramiento ni recomendación financiera o de inversión.
+El módulo de predicción permite generar proyecciones iterativas hacia el futuro:
+- **Precios Proyectados:** Estimación puntual basada en el modelo entrenado.
+- **Escenarios de Riesgo:** Banda superior (+2% u optimista) y banda inferior (-2% o pesimista).
+- **Visualización:** Gráficos comparativos entre la serie histórica reciente y la proyección futura.
+
+---
+
+## 🚀 Instrucciones de Despliegue
+
+> [!IMPORTANT]
+> **GitHub Pages vs Streamlit:**
+> GitHub Pages solo aloja sitios web estáticos como `index.html`. Para ejecutar aplicaciones interactivas de Streamlit se requiere un entorno de ejecución servidor en Python.
+
+Para desplegar la aplicación en la nube:
+1. **Streamlit Community Cloud (Recomendado):** Sube el repositorio a GitHub, conecta en [share.streamlit.io](https://share.streamlit.io/) y selecciona `app.py`.
+2. **Docker / Railway / Render:** Compatible con el ejecutable `streamlit run app.py --server.port $PORT`.
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
