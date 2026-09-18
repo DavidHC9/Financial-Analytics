@@ -1,5 +1,7 @@
 # 📊 Financial Analytics & Machine Learning: ProyecKeras
 
+url de streamlit : https://parcial-1-introduccion-a-machine-learning-yppy9qxqtofvnokbkwds.streamlit.app
+
 ![Python](https://img.shields.io/badge/python-3.10%2B-106EBE?style=flat-square&logo=python&logoColor=white) ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3%2B-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B?style=flat-square&logo=streamlit&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-2.0%2B-150458?style=flat-square&logo=pandas&logoColor=white) ![Methodology](https://img.shields.io/badge/Methodology-CRISP--ML-purple?style=flat-square)
 
 Una plataforma profesional e interactiva de análisis financiero y Machine Learning diseñada para monitorear activos de mercado, evaluar indicadores técnicos y entrenar modelos predictivos bursátiles bajo la metodología industrial estándar **CRISP-ML(Q)**.
